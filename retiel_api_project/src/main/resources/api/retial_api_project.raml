@@ -1,0 +1,181 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/89658a77-b743-47d8-aa6f-575b93ba55fb/ # 
+title: Retial_Api_project
+/products:
+  description: fetches list of all product data
+  get:
+    description: retrive products
+    responses:
+      200:
+        body:
+          application/json:
+            example: {retrive successfully}
+      400:
+        body:
+          application/json:
+            example: {"Bad Request"}
+                    
+  /id:
+    description:  created by id products
+    get:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example: {successfully create by id}
+    put:
+      description: update by specific id
+      responses:
+        200:
+          body:
+            application/json:
+              example: {massage:"updated successfully"}
+                
+        
+    delete: 
+     description: remove by specifc id
+     responses:
+       200:
+         body:
+           application/json:
+             example: {massge:"remove product spacific id"}
+               
+
+        
+  post:
+    description: created by id products
+    responses:
+      201:
+        body:
+          application/json:
+            example: {massage:"seccessfully created"}
+/Bills:
+  get:
+    
+    description: retrive all bill data 
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"massage":"retrive all bill data"}
+  post:
+    description: 
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"massage":"successfully create all bill data"}
+  /id:
+    description: fetches bill of a particular id
+    get:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: fetch data
+      responses:
+        200:
+          body:
+            application/json:
+              example: {"massage":"retrive spacific bill data"}
+    
+  put:
+    queryParameters:
+        id:
+          type: integer
+          required: true
+    description: update bill data by particular id
+    responses:
+      200:
+        body:
+          application/json:
+            example: {"successfully updated bill data by id"}
+      400:
+        body:
+          application/json:
+            example: {"Bad Request"}
+                    
+              
+  delete:
+    queryParameters:
+        id:
+          type: integer
+          required: true
+    description: remove bill data by particular id
+    responses:
+      400:
+        body:
+          application/json:
+            example: {"massage":"bad request"}
+              
+/productcatagory:
+  get:
+    description: retrive fetches list of all productcatagory data
+    responses:
+      200:
+        body:
+          application/json:
+            example: {retrive successfully}
+      500:
+        body:
+          application/json:
+            example: {"Internal Server Error"}
+                    
+  /{id}:
+    description: retrive by id productcatagory
+    get:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      responses:
+        200:
+          body:
+            application/json:
+              example: {successfully create by id}
+    put:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: update by specific productcatagory
+      responses:
+        200:
+          body:
+            application/json:
+              example: {massage:"updated successfully"}
+    delete:
+      queryParameters:
+        id:
+          type: integer
+          required: true
+      description: remove by specifc productcatagory
+      responses:
+       200:
+         body:
+           application/json:
+             example: {massge:"remove product spacific id"}
+       407:
+         body:
+           application/json:
+             example: {" Proxy Authentication Required"}
+                
+
+    post:
+      description: created by id productcatagory
+      responses:
+        201:
+          body:
+            application/json:
+              example: {massage:"seccessfully created"}
+        401:
+          body:
+            application/json:
+              example: {"Unauthorized"}
+                      
+  
+          
