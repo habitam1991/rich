@@ -1,0 +1,38 @@
+#%RAML 1.0
+baseUri: https://anypoint.mulesoft.com/mocking/api/v1/links/745114aa-f5b7-4843-b15d-892a431cb424/ # 
+title: cutomer-consumer
+/consumer:
+  get:
+    queryParameters:
+      firstname: 
+      lastname:
+      ssn:
+      accountnumber:
+        type: string
+        required: true
+    description: retrive all account information
+    responses:
+      200:
+        body:
+          application/json:
+            example: { "firstname":"jone",
+                       "lastname":"mamo",
+                       "ssn":"125258547",
+                       "account":0000004455566
+                      }
+      400:
+        body:
+          application/json:
+            example: {"massage":"bad request"}
+
+      404:
+        body:
+          application/json:
+            example: {"massage":"resouece not found"}
+                    
+      500:
+        body:
+          application/json:
+            example: {"massage":"server error"}
+              
+                                  

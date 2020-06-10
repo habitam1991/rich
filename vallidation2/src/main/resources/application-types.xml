@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="conc" format="json">
+      <types:shape format="weave" example="examples/consumer.json"><![CDATA[%dw 2.0
+
+type conc = {|
+  firstname: String, 
+  lastname: String, 
+  ssn: String, 
+  accountnumber: Number {"typeId": "double"}
+|} {"example": "{\\\"firstname\\\":\\\"jone\\\",\\\"lastname\\\":\\\"mamo\\\",\\\"ssn\\\":\\\"125258547\\\",\\\"accountnumber\\\":14562378945}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#7b4930aa-dc99-485b-b554-718c08bcd225">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="conc"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="conc"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
